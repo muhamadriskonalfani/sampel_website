@@ -116,7 +116,7 @@ section {
 
 .header .search-form {
     position: absolute;
-    top: 15%; right: 7%;
+    top: 94px; right: 7%;
     background: #fff;
     width: 50rem;
     height: 5rem;
@@ -152,14 +152,16 @@ section {
 
 .header .cart-items-container {
     position: absolute;
-    top: 15%; right: -100%;
+    top: 94px; right: -100%;
     height: calc(100vh - 9.5rem);
     width: 35rem;
     background: #fff;
     padding: 0 2rem;
+    display: none;
 }
 
 .header .cart-items-container.active {
+    display: block;
     right: 0;
 }
 
@@ -602,13 +604,15 @@ section {
 
     .header .navbar {
         position: absolute;
-        top: 13%; right: -100%;
+        top: 82px; right: -100%;
         background: #fff;
         width: 30rem;
         height: calc(100vh - 9.5rem);
+        display: none;
     }
 
     .header .navbar.active {
+        display: block;
         right: 0;
     }
 
@@ -621,13 +625,13 @@ section {
     }
 
     .header .search-form {
-        top: 13%;
+        top: 82px;
         width: 90%;
         right: 2rem;
     }
 
     .header .cart-items-container {
-        top: 13%;
+        top: 82px;
     }
 
     .home {
