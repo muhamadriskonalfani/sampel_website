@@ -3,8 +3,7 @@
 :root {
     --main-color: #d3ad7f;
     --black: #13131a;
-    --bg: #fff;
-    --border: .1rem solid rgba(0,0,0,.3);
+    --white: #fff;
 }
 
 * {
@@ -34,12 +33,12 @@ html::-webkit-scrollbar-track {
 }
 
 html::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: var(--white);
     border-radius: 5rem;
 }
 
 body {
-    background: var(--bg);
+    background: var(--white);
 }
 
 section {
@@ -64,12 +63,14 @@ section {
     display: inline-block;
     padding: .9rem 3rem;
     font-size: 1.7rem;
-    color: #fff;
+    color: var(--white);
     background: var(--main-color);
     cursor: pointer;
+    transition: .1s;
 }
 
 .btn:hover {
+    color: var(--white);
     letter-spacing: .2rem;
 }
 
@@ -83,13 +84,12 @@ section {
 
 
 .header {
-    background: #222;
+    background: var(--black);
     height: 9rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 7%;
-    border-bottom: var(--border);
     top: 0; left: 0; right: 0;
     z-index: 1000;
 }
@@ -102,9 +102,10 @@ section {
     padding: 0rem 1.5rem;
     margin: 0 1.5rem;
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--white);
     font-weight: bold;
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 .header .navbar a:hover {
@@ -114,7 +115,7 @@ section {
 }
 
 .header .icons div {
-    color: #fff;
+    color: var(--white);
     cursor: pointer;
     font-size: 2.5rem;
     margin-left: 2rem;
@@ -131,7 +132,7 @@ section {
 .header .search-form {
     position: absolute;
     top: 90px; right: 7%;
-    background: #fff;
+    background: var(--white);
     width: 50rem;
     height: 5rem;
     display: flex;
@@ -170,14 +171,12 @@ section {
     top: 90px; right: -100%;
     height: calc(100vh - 9.5rem);
     width: 35rem;
-    background: #fff;
+    background: var(--white);
     padding: 0 2rem;
-    display: none;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
 .header .cart-items-container.active {
-    display: block;
     right: 0;
 }
 
@@ -187,6 +186,10 @@ section {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item img {
+    width: 11rem;
 }
 
 .header .cart-items-container .cart-item .fa-times {
@@ -236,7 +239,7 @@ section {
 
 .menu .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
@@ -244,6 +247,7 @@ section {
     display: flex;
     text-align: center;
     padding: 2rem;
+    border-radius: 1rem;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
@@ -259,7 +263,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left;
     padding: 1rem;
 }
 
@@ -276,18 +279,19 @@ section {
 
 .product .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
 .product .box-container .box {
     padding: 5rem;
     text-align: center;
+    border-radius: 1rem;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
 .product .box-container .box img {
-    height: 15rem;
+    height: 20rem;
 }
 
 .product .box-container .box h3 {
@@ -303,25 +307,21 @@ section {
 }
 
 .product .box-container .box .price span {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-decoration: line-through;
-    font-weight: lighter;
-}
-
-.product .box-container .box:hover {
-    background: #fff;
 }
 
 
 .review .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
 .review .box-container .box {
     text-align: center;
     padding: 3rem 2rem;
+    border-radius: 1rem;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
@@ -332,11 +332,18 @@ section {
     padding: 2rem 0;
 }
 
+.review .box-container .box .quote {
+    width: 11rem;
+}
+
 .review .box-container .box .user {
     height: 7rem;
     width: 7rem;
-    border-radius: 50%;
+    padding: 2px;
     object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
 .review .box-container .box h3 {
@@ -369,6 +376,7 @@ section {
     border: .1rem solid #fff;
     margin: .3rem;
     border-radius: 50%;
+    text-decoration: none;
 }
 
 .footer .share a:hover {
@@ -386,8 +394,10 @@ section {
 .footer .links a {
     padding: .7rem 2rem;
     color: #fff;
+    border-radius: 1rem;
     border: .1rem solid #fff;
     font-size: 2rem;
+    text-decoration: none;
 }
 
 .footer .links a:hover {
@@ -453,12 +463,11 @@ section {
         background: #fff;
         width: 30rem;
         height: calc(100vh - 9.5rem);
-        display: none;
+        display: block;
         box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
     }
 
     .header .navbar.active {
-        display: block;
         right: 0;
     }
 
@@ -504,9 +513,72 @@ section {
         font-size: 1.5rem;
     }
 
+    .menu .box-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .menu .box-container .box:nth-child(even) .image {
+        order: 2;
+    }
+
+    .menu .box-container .box .image img {
+        height: 12rem;
+    }
+
+    .product .box-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product .box-container .box {
+        padding: 2.5rem;
+    }
+
+    .product .box-container .box img {
+        height: 15rem;
+    }
+
+    .review .box-container {
+        display: grid;
+        grid-template-columns: repeat(3, 40rem);
+        overflow-x: auto;
+    }
+
+    .review .box-container .box {
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+    }
+
+    .review .box-container .box:last-child {
+        margin-right: .5rem;
+    }
+
+    .review .box-container::-webkit-scrollbar {
+        height: 1rem;
+    }
+    
+    .review .box-container::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .review .box-container::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 5rem;
+    }
+
+    .review .box-container .box .user {
+        height: 11rem;
+        width: 11rem;
+    }
+
     section, .footer, .divider {
         position: relative;
         top: 9rem;
+    }
+
+    .divider {
+        height: 2rem;
     }
 
 }
