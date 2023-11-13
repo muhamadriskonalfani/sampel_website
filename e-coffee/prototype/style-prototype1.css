@@ -42,7 +42,7 @@ body {
 }
 
 section {
-    padding: 5rem 7%;
+    padding: 4rem 2%;
 }
 
 .heading {
@@ -244,38 +244,39 @@ section {
 .menu .box-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .menu .box-container .box {
-    display: flex;
-    text-align: center;
+    display: grid;
+    grid-template-areas: 'image title'
+                        'image text';
+    grid-template-columns: 1fr;
+    grid-template-rows: .5fr;
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
 .menu .box-container .box .image {
+    grid-area: image;
+    display: flex;
+    align-items: center;
     padding: 2.5rem 0;
 }
 
 .menu .box-container .box .image img {
-    height: 15rem;
+    height: 11rem;
 }
 
-.menu .box-container .box .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.menu .box-container .box .content h3 {
+.menu .box-container .box h3 {
+    grid-area: title;
     color: var(--black);
     font-size: 2.5rem;
 }
 
-.menu .box-container .box .content p {
+.menu .box-container .box p {
+    grid-area: text;
     color: var(--black);
     font-size: 1.5rem;
 }
@@ -283,12 +284,13 @@ section {
 
 .product .box-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
 
 .product .box-container .box {
-    padding: 5rem;
+    padding: 2rem;
+    padding-bottom: 4rem;
     text-align: center;
     border-radius: 1rem;
     box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
@@ -301,13 +303,11 @@ section {
 .product .box-container .box h3 {
     color: var(--black);
     font-size: 2rem;
-    padding: 1rem 0;
 }
 
 .product .box-container .box .price {
     color: var(--black);
     font-size: 2.5rem;
-    padding: .5rem 0;
 }
 
 .product .box-container .box .price span {
@@ -319,7 +319,7 @@ section {
 .review .box-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .review .box-container .box {
@@ -500,6 +500,7 @@ section {
     .header .cart-items-container {
         top: 79px;
     }
+    
 
     .home {
         position: relative;
@@ -517,50 +518,102 @@ section {
         font-size: 1.5rem;
     }
 
+
     .menu .box-container {
         display: grid;
         grid-template-columns: 1fr;
+        padding: 0 1rem;
     }
 
-    .menu .box-container .box:nth-child(even) .image {
-        order: 2;
+    .menu .box-container .box {
+        display: grid;
+        grid-template-areas: 'image title'
+                            'text text';
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: .5fr;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 .5em 1.5em rgba(0, 0, 0, .1), 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .menu .box-container .box:nth-child(even) {
+        display: grid;
+        grid-template-areas: 'title image'
+                            'text text';
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: .5fr;
+    }
+
+    .menu .box-container .box .image {
+        grid-area: image;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
     }
 
     .menu .box-container .box .image img {
-        height: 12rem;
+        height: 9rem;
     }
+    
+    .menu .box-container .box h3 {
+        grid-area: title;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--black);
+        font-size: 2rem;
+    }
+    
+    .menu .box-container .box p {
+        grid-area: text;
+        color: var(--black);
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
 
     .product .box-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(8, 23rem);
+        overflow-x: auto;
+        padding: 0 1rem;
     }
 
     .product .box-container .box {
-        padding: 0 2.5rem 2.5rem;
-    }
-
-    .product .box-container .box h3,
-    .product .box-container .box .price {
-        padding: 0;
+        padding: 0 2.5rem 3rem;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
     }
 
     .product .box-container .box img {
         height: 15rem;
     }
 
+    .product .box-container::-webkit-scrollbar {
+        height: 1rem;
+    }
+    
+    .product .box-container::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .product .box-container::-webkit-scrollbar-thumb {
+        background: var(--main-color);
+        border-radius: 5rem;
+    }
+
+
     .review .box-container {
         display: grid;
         grid-template-columns: repeat(3, 40rem);
         overflow-x: auto;
+        padding: 0 1rem;
     }
 
     .review .box-container .box {
         border: 1px solid #ddd;
         margin-bottom: 1rem;
-    }
-
-    .review .box-container .box:last-child {
-        margin-right: .5rem;
     }
 
     .review .box-container::-webkit-scrollbar {
@@ -581,13 +634,19 @@ section {
         width: 11rem;
     }
 
+
     section, .footer, .divider {
         position: relative;
         top: 9rem;
     }
 
+    .heading {
+        padding-bottom: 2.5rem;
+        font-size: 3rem;
+    }
+
     section {
-        padding: 5rem .5rem;
+        padding: 4rem .5rem;
     }
 
     .divider {
